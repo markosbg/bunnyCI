@@ -3,7 +3,7 @@ language: python
 before_script:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" images.sbgenomics.com
   - docker ps -a
-  - sudo yum install python-yaml
+  - pip install pyyaml
 script:
   - pwd
   - ls -ltra
