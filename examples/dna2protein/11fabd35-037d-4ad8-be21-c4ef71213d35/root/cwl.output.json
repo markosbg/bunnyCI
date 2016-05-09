@@ -1,0 +1,8 @@
+{
+  "output_file_glob" : {
+    "name" : "rna.txt",
+    "path" : "/home/markov/git/rabix-0.3.0-alpha/examples/dna2protein/11fabd35-037d-4ad8-be21-c4ef71213d35/root/rna.txt",
+    "class" : "File",
+    "size" : 29
+  }
+}

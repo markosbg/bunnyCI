@@ -1,0 +1,9 @@
+sudo: required
+language: python
+before_script:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" images.sbgenomics.com
+  - docker ps -a
+script:
+  - python runtests.py ~/git/rabix-0.3.0-alpha/ ./rabix.sh
+services:
+  - docker

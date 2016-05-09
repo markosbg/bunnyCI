@@ -1,0 +1,10 @@
+{
+  "outfile" : {
+    "path" : "9cc85b3f-a824-4d4a-81a3-257fe0fb71e7/root/out.txt",
+    "class" : "File",
+    "checksum" : "sha1$f6d58a0f9a7fadea1beb0e7e40572a07bd108c61",
+    "size" : 40,
+    "metadata" : { },
+    "name" : "out.txt"
+  }
+}
