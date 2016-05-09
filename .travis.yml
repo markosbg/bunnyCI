@@ -12,5 +12,6 @@ script:
   - pwd
   - ls -ltra
   - python runtests.py ~/build/markosbg/bunnyCI/ ./rabix.sh
+  - less TestLog.log
 services:
   - docker

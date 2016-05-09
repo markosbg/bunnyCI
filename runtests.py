@@ -2,6 +2,7 @@ import os
 import sys
 import yaml
 import contextlib
+from datetime import datetime
 
 
 @contextlib.contextmanager
@@ -40,6 +41,13 @@ def run_test(test, cmd_prefix, tests_dir):
     with open('result.yaml') as fp:
         result = yaml.load(fp)
     print('Result:\n%s\nExpected:\n%s' % (result, expected))
+    sttime = datetime.now().strftime('%Y%m%d_%H:%M:%S - ')
+    resStr = str(result)
+    expStr = str(expected)
+    with open("TestLog.log", "a") as myfile:
+        myfile.write('\n'+sttime)
+        myfile.write('\n'+resStr)
+        myfile.write('\n'+expStr)
     return relative_paths(result) == expected
 
 
