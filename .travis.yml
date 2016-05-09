@@ -7,6 +7,6 @@ before_script:
 script:
   - pwd
   - ls -ltra
-  - python runtests.py ~/git/rabix-0.3.0-alpha/ ./rabix.sh
+  - python runtests.py ~/home/travis/build/markosbg/bunnyCI/ ./rabix.sh
 services:
   - docker
