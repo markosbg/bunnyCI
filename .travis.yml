@@ -5,14 +5,9 @@ before_install:
   - docker pull carlad/sinatra
 
 before_script:
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" images.sbgenomics.com
-  - docker ps -a
   - pip install pyyaml
 script:
-  - pwd
-  - ls -ltra
-  - python runtests.py ~/build/markosbg/bunnyCI/ ./rabix.sh
-  - less TestLog.log
-  - Q
+  - cd examples
+  - python runtests.py . ../rabix.sh
 services:
   - docker

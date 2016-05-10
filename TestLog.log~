@@ -1,9 +1,0 @@
-
-20160509_19:51:39 - 
-20160509_19:53:42 - 
-20160509_19:57:35 - 
-{'outfile': {'name': 'out.txt', 'path': '657509de-d5c4-4ea9-ae5e-5a900463923a/root/out.txt', 'checksum': 'sha1$f6d58a0f9a7fadea1beb0e7e40572a07bd108c61', 'metadata': {}, 'class': 'File', 'size': 40}}
-{'outfile': {'class': 'File', 'name': 'out.txt', 'size': 42}}
-20160509_19:57:57 - 
-{'outfile': {'name': 'out.txt', 'path': 'cded408f-3111-4432-aba6-15ade8a0b43a/root/out.txt', 'checksum': 'sha1$f6d58a0f9a7fadea1beb0e7e40572a07bd108c61', 'metadata': {}, 'class': 'File', 'size': 40}}
-{'outfile': {'class': 'File', 'name': 'out.txt', 'size': 42}}
