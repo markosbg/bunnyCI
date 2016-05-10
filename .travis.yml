@@ -13,5 +13,6 @@ script:
   - ls -ltra
   - python runtests.py ~/build/markosbg/bunnyCI/ ./rabix.sh
   - less TestLog.log
+  - Q
 services:
   - docker
