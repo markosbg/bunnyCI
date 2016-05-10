@@ -1,5 +1,2 @@
-# sbteclipse plugin
-.target
-/target
-/log
-/target/
+syntax: glob
+result.yaml

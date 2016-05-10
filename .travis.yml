@@ -7,7 +7,6 @@ language: python
 before_script:
   - pip install pyyaml
 script:
-  - cd examples
-  - python runtests.py . ../rabix.sh
+  - python runtests.py examples/ ./rabix.sh
 services:
   - docker

@@ -1,6 +1,6 @@
 test1:
-  app: boysha_grep.cwl.yaml
-  inputs: grep.inputs.yaml
+  app: examples/boysha_grep.cwl.yaml
+  inputs: examples/grep.inputs.yaml
   runtime: 60
   expected:
     outfile:
@@ -8,8 +8,8 @@ test1:
       name: out.txt
       size: 40
 test2:
-  app: boysha_grep.cwl.yaml
-  inputs: grep.inputs.yaml
+  app: examples/boysha_grep.cwl.yaml
+  inputs: examples/grep.inputs.yaml
   expected:
     outfile:
       class: File

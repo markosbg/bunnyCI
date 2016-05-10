@@ -4,6 +4,15 @@ import yaml
 import contextlib
 from datetime import datetime
 
+# Taken from http://stackoverflow.com/a/21048064
+# _mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
+# def dict_representer(dumper, data):
+#     return dumper.represent_dict(data.items())
+# def dict_constructor(loader, node):
+#     return collections.OrderedDict(loader.construct_pairs(node))
+# yaml.add_representer(collections.OrderedDict, dict_representer)
+# yaml.add_constructor(_mapping_tag, dict_constructor)
+
 
 @contextlib.contextmanager
 def working_directory(path):
@@ -32,7 +41,7 @@ def run_test(test, cmd_prefix, tests_dir, test_name):
     app = test['app']
     inputs = test['inputs']
     expected = test['expected']
-    cmd = '%s %s %s > result.yaml' % (cmd_prefix, app, inputs)
+    cmd = '%s -e . %s %s > result.yaml' % (cmd_prefix, app, inputs)
     print('Running cmd: %s' % cmd)
     return_code = os.system(cmd)
     print('Return code: %s' % return_code)
@@ -73,7 +82,7 @@ def main():
     for suite in find_tests(tests_dir):
         for test_name, test in suite.items():
             print('Running test %s' % test_name)
-            with working_directory(tests_dir):
+            with working_directory('.'):  #tests_dir):
                 returned_from_RT = run_test(test, cmd_prefix, tests_dir, test_name)
                 print('Returned from run test method: '+str(returned_from_RT))
                 if not returned_from_RT:
