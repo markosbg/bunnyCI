@@ -6,7 +6,7 @@ test1:
     outfile:
       class: File
       name: out.txt
-      size: 42
+      size: 40
 test2:
   app: boysha_grep.cwl.yaml
   inputs: grep.inputs.yaml
@@ -14,4 +14,4 @@ test2:
     outfile:
       class: File
       name: out.txt
-      size: 42
+      size: 40

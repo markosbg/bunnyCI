@@ -28,7 +28,7 @@ def find_tests(tests_dir):
             yield yaml.load(fp)
 
 
-def run_test(test, cmd_prefix, tests_dir):
+def run_test(test, cmd_prefix, tests_dir, test_name):
     app = tests_dir+''+test['app']
     inputs = tests_dir+test['inputs']
     expected = test['expected']
@@ -41,15 +41,24 @@ def run_test(test, cmd_prefix, tests_dir):
     with open('result.yaml') as fp:
         result = yaml.load(fp)
     print('Result:\n%s\nExpected:\n%s' % (result, expected))
-    sttime = datetime.now().strftime('%Y%m%d_%H:%M:%S - ')
+    sttime = datetime.now().strftime('%Y%m%d_%H:%M:%S')
     resStr = str(result)
     expStr = str(expected)
-    with open("TestLog.log", "a") as myfile:
-        myfile.write('\n'+sttime)
-        myfile.write('\n'+resStr)
-        myfile.write('\n'+expStr)
+    retCod = str(return_code)
+    with open("TestLog"+sttime+".log", "a") as myfile:
+        myfile.write('test name: '+test_name+'\n')
+        # myfile.write('\n\ttimestamp: '+sttime)
+        myfile.write('\tResult: '+resStr+'\n')
+        myfile.write('\tExpected: '+expStr+'\n')
+        myfile.write('\tReturn code: '+retCod+'\n')
+        # cmpVal = compare_expected_result(result,expected)
+        print('ZZZtop: ' + str(relative_paths(result)))
     return relative_paths(result) == expected
 
+
+
+# def compare_expected_result(result, expected):
+    # TODO : logic here...
 
 def relative_paths(o):
     if isinstance(o, dict) and o.get('class') == 'File':
@@ -68,7 +77,8 @@ def main():
         for test_name, test in suite.items(): #kako je mapiran test_name u fajlu? kako on zna da je test_name bas test1, test2,itd...
             print('Running test %s' % test_name)
             with working_directory(tests_dir):
-                run_test(test, cmd_prefix, tests_dir)
+                returned_from_RT = run_test(test, cmd_prefix, tests_dir, test_name)
+                print('Returned from run test method: '+str(returned_from_RT))
 
 
 if __name__ == '__main__':
